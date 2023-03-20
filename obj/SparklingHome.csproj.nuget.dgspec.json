@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Desktop\\DDAC\\assignment work\\SparklingHome\\SparklingHome\\SparklingHome\\SparklingHome.csproj": {}
+    "C:\\Users\\Koh\\Desktop\\year 3 sem 2 - assignments\\DDAC\\SparklingHome\\SparklingHome.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Desktop\\DDAC\\assignment work\\SparklingHome\\SparklingHome\\SparklingHome\\SparklingHome.csproj": {
+    "C:\\Users\\Koh\\Desktop\\year 3 sem 2 - assignments\\DDAC\\SparklingHome\\SparklingHome.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\DDAC\\assignment work\\SparklingHome\\SparklingHome\\SparklingHome\\SparklingHome.csproj",
+        "projectUniqueName": "C:\\Users\\Koh\\Desktop\\year 3 sem 2 - assignments\\DDAC\\SparklingHome\\SparklingHome.csproj",
         "projectName": "SparklingHome",
-        "projectPath": "C:\\Users\\user\\Desktop\\DDAC\\assignment work\\SparklingHome\\SparklingHome\\SparklingHome\\SparklingHome.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Desktop\\DDAC\\assignment work\\SparklingHome\\SparklingHome\\SparklingHome\\obj\\",
+        "projectPath": "C:\\Users\\Koh\\Desktop\\year 3 sem 2 - assignments\\DDAC\\SparklingHome\\SparklingHome.csproj",
+        "packagesPath": "C:\\Users\\Koh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Koh\\Desktop\\year 3 sem 2 - assignments\\DDAC\\SparklingHome\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Koh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -89,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.426\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
         }
       }
     }

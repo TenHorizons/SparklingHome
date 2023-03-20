@@ -9,3 +9,4 @@ namespace SparklingHome.Models
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }
 }
+

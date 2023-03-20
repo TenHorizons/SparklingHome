@@ -16,6 +16,8 @@ namespace SparklingHome.Data
         {
         }
 
+        public DbSet<SparklingHome.Models.Maid> Maid { get; set; } 
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
