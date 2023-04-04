@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+jKmoYBtAIKmdl+9MiNPbl004XHiqApP2wivtJzu9wPJ+rnxHkqx+dCrn53LsgZMSq+xTlHXY+cKSMGviyjjOw==",
+  "dgSpecHash": "7blFHICpE/pQouU0eB16xfH4QuCxighsfNFh+3qHt+jMMV2AYNxiZJNu4u90Mzf7Kmqj9UOYhVUCBVhMa0AV9Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Koh\\Desktop\\year 3 sem 2 - assignments\\DDAC\\SparklingHome\\SparklingHome.csproj",
+  "projectFilePath": "C:\\Users\\Public\\SparklingHome\\SparklingHome.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Koh\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.32\\microsoft.aspnetcore.cryptography.internal.3.1.32.nupkg.sha512",
     "C:\\Users\\Koh\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.32\\microsoft.aspnetcore.cryptography.keyderivation.3.1.32.nupkg.sha512",

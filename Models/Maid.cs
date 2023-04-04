@@ -15,6 +15,7 @@ namespace SparklingHome.Models
         public string FullName { get; set; }
 
         [Required(ErrorMessage = "You have not provided the registration date for this employee")]
+        [DataType(DataType.DateTime)]
         public DateTime RegistrationDate { get; set; }
 
         [Required(ErrorMessage = "You have not specified the employee's gender")]
@@ -29,6 +30,7 @@ namespace SparklingHome.Models
 
         public Boolean IsAvailable { get; set; }
 
+        [Range(0, 100, ErrorMessage = "This working experience range is invalid")]
         public int WorkingExperienceInYears { get; set; }
     }
 }

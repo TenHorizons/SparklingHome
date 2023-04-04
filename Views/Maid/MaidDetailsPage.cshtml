@@ -1,0 +1,57 @@
+﻿@model Maid
+
+@{
+    ViewData["Title"] = "MaidDetailsPage";
+}
+
+
+@if (TempData["errorMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["errorMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+<h1>Employee Details</h1>
+
+
+<form class="w-50 mt-3" method="post" asp-action="UpdateMaidDetails" asp-controller="Maid">
+    <div class="form-group">
+        <input type="hidden" asp-for="MaidId" />
+        <label asp-for="FullName">Employee Full Name</label>
+        <input class="form-control" asp-for="FullName" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ContactNo">Contact No</label>
+        <input class="form-control" asp-for="ContactNo" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Gender">Gender</label>
+        <input class="form-control" asp-for="Gender" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Salary">Salary (RM)</label>
+        <input class="form-control" asp-for="Salary" />
+        <span asp-validation-for="Salary" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IsAvailable">Availability</label>
+        <select class="custom-select" asp-for="IsAvailable">
+            <option value="False">Booked</option>
+            <option value="True">Available</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="WorkingExperienceInYears">Working Experience (Years)</label>
+        <input class="form-control" asp-for="WorkingExperienceInYears" />
+    </div>
+    <div class="form-group">
+        <label asp-for="RegistrationDate">Registratin Date</label>
+        <input class="form-control" asp-for="RegistrationDate" disabled />
+    </div>
+    <button type="submit" class="btn btn-primary">Update Maid Details</button>
+</form>
+
