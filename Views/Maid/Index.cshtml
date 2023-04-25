@@ -47,7 +47,7 @@
                 <td>@maid.RegistrationDate</td>
                 <td>@maid.IsAvailable</td>
                 <td>
-                    <a type="button" class="btn btn-info" asp-action="MaidDetailsPage" asp-controller="Maid" asp-route-maidId="@maid.MaidId">Update</a>
+                    <a class="btn btn-info" asp-action="MaidDetailsPage" asp-controller="Maid" asp-route-maidId="@maid.MaidId">Update</a>
                     <button type="button" class="btn btn-danger open-delete-maid-modal" data-id="@maid.MaidId" data-toggle="modal" data-target="#deleteMaidModal">Delete</button>
                 </td>
             </tr>

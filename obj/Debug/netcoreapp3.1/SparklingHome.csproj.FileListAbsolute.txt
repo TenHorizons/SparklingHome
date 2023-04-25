@@ -1316,3 +1316,5 @@ C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\SparklingHome.dll
 C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\SparklingHome.pdb
 C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\SparklingHome.genruntimeconfig.cache
 C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Views\Maid\MaidDetailsPage.cshtml.g.cs
+C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Views\Reservation\Index.cshtml.g.cs
+C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Views\Reservation\ReservationCreation.cshtml.g.cs

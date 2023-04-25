@@ -16,7 +16,9 @@ namespace SparklingHome.Data
         {
         }
 
-        public DbSet<SparklingHome.Models.Maid> Maid { get; set; } 
+        public DbSet<SparklingHome.Models.Maid> Maid { get; set; }
+
+        public DbSet<SparklingHome.Models.Reservation> Reservations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

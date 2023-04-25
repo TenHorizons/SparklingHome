@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SparklingHome.Models
 {
@@ -26,11 +27,14 @@ namespace SparklingHome.Models
 
         [Required(ErrorMessage = "The employee's monthly salary is required for auditing purposes")]
         [Range(2000, 5000, ErrorMessage = "The employee's wage cannot be less than RM2000 or more than RM5000")]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Salary { get; set; }
 
         public Boolean IsAvailable { get; set; }
 
         [Range(0, 100, ErrorMessage = "This working experience range is invalid")]
         public int WorkingExperienceInYears { get; set; }
+
+        public ICollection<Reservation> Reservation { get; set; }
     }
 }

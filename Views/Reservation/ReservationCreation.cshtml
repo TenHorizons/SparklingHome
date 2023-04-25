@@ -1,0 +1,41 @@
+﻿@model Reservation
+
+<h1>Make a New Reservation</h1>
+
+<form class="w-50">
+
+    <div class="form-group">
+        <label asp-for="Address">Address</label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Postcode">Postcode</label>
+        <input asp-for="Postcode" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Timeslot">Timeslot</label>
+        <input asp-for="Timeslot" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ServiceType">Service Type</label>
+        <input asp-for="ServiceType" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ReservationDate">Service Type</label>
+        <input asp-for="ReservationDate" class="form-control" />
+    </div>
+
+    <label asp-for="MaidId"></label>
+    <select asp-for="MaidId" class="custom-select">
+        @foreach (var maid in (List<Maid>)ViewBag.maidList)
+        {
+            <option value="@maid.MaidId">@maid.FullName</option>
+        }
+    </select>
+
+</form>
+
