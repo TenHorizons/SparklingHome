@@ -876,3 +876,6 @@ C:\Users\Koh\Desktop\year 3 sem 2 - assignments\DDAC\SparklingHome\obj\Debug\net
 C:\Users\Koh\Desktop\year 3 sem 2 - assignments\DDAC\SparklingHome\obj\Debug\netcoreapp3.1\SparklingHome.pdb
 C:\Users\Koh\Desktop\year 3 sem 2 - assignments\DDAC\SparklingHome\obj\Debug\netcoreapp3.1\SparklingHome.genruntimeconfig.cache
 C:\Users\Koh\Desktop\year 3 sem 2 - assignments\DDAC\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Views\Maid\Index.cshtml.g.cs
+C:\Users\user\Desktop\DDAC\assignment work\SparklingHome\SparklingHome\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Views\Maid\Index.cshtml.g.cs
+C:\Users\user\Desktop\DDAC\assignment work\SparklingHome\SparklingHome\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\AdminHome\Index.cshtml.g.cs
+C:\Users\user\Desktop\DDAC\assignment work\SparklingHome\SparklingHome\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\UserHome\Index.cshtml.g.cs

@@ -84,7 +84,10 @@ namespace SparklingHome.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    var sparklingHomeUser = await _userManager.FindByEmailAsync(Input.Email);
+                    var userType = sparklingHomeUser.UserType;
+                    if (userType == "Admin") { return RedirectToPage("/AdminHome/Index"); }
+                    else { return RedirectToPage("/UserHome/Index"); }
                 }
                 if (result.RequiresTwoFactor)
                 {
