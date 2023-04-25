@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SparklingHome.Data;
 
 namespace SparklingHome.Migrations
 {
     [DbContext(typeof(SparklingHomeContext))]
-    partial class SparklingHomeContextModelSnapshot : ModelSnapshot
+    [Migration("20230425035448_CustomUserData")]
+    partial class CustomUserData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -264,41 +266,6 @@ namespace SparklingHome.Migrations
                     b.ToTable("Maid");
                 });
 
-            modelBuilder.Entity("SparklingHome.Models.Reservation", b =>
-                {
-                    b.Property<int>("ReservationId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("MaidId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Postcode")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("ReservationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("ReservationStatus")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("ServiceType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Timeslot")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ReservationId");
-
-                    b.HasIndex("MaidId");
-
-                    b.ToTable("Reservations");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -346,15 +313,6 @@ namespace SparklingHome.Migrations
                     b.HasOne("SparklingHome.Areas.Identity.Data.SparklingHomeUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SparklingHome.Models.Reservation", b =>
-                {
-                    b.HasOne("SparklingHome.Models.Maid", "Maid")
-                        .WithMany("Reservation")
-                        .HasForeignKey("MaidId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

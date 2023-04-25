@@ -44,6 +44,12 @@ namespace SparklingHome.Areas.Identity.Pages.Account
 
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
 
+        public enum UserType
+        {
+            Admin,
+            User
+        }
+
         public class InputModel
         {
             [Required]
@@ -61,6 +67,20 @@ namespace SparklingHome.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [Required]
+            [Display(Name = "Full Name")]
+            [StringLength(maximumLength:100,MinimumLength =5,ErrorMessage ="Full Name should be at least 5 characters and at most 100 characters.")]
+            public string UserFullName { get; set; }
+
+            [Required]
+            [Display(Name = "Phone Number")]
+            [DataType(DataType.PhoneNumber)]
+            public string UserPhoneNumber { get; set; }
+
+            [Required]
+            [Display(Name = "User Type")]
+            public UserType UserType { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -75,7 +95,16 @@ namespace SparklingHome.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new SparklingHomeUser { UserName = Input.Email, Email = Input.Email };
+                string userType;
+                if (Input.UserType == UserType.Admin) { userType = "Admin"; } else { userType = "User"; }
+                var user = new SparklingHomeUser { 
+                    UserName = Input.Email,
+                    Email = Input.Email,
+                    UserFullName = Input.UserFullName,
+                    UserPhoneNumber = Input.UserPhoneNumber,
+                    UserType = userType
+                    //Following Lab 2.1 [not yet completed]
+                };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
