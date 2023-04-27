@@ -2,8 +2,7 @@
 
 <h1>Make a New Reservation</h1>
 
-<form class="w-50">
-
+<form class="w-50" asp-action="MakeReservation" asp-controller="Reservation">
     <div class="form-group">
         <label asp-for="Address">Address</label>
         <input asp-for="Address" class="form-control" />
@@ -16,12 +15,12 @@
 
     <div class="form-group">
         <label asp-for="Timeslot">Timeslot</label>
-        <input asp-for="Timeslot" class="form-control" />
+        @Html.DropDownListFor(model => model.Timeslot, new SelectList(Enum.GetValues(typeof(TIMESLOT))), new { @class = "form-control" })
     </div>
 
     <div class="form-group">
         <label asp-for="ServiceType">Service Type</label>
-        <input asp-for="ServiceType" class="form-control" />
+        @Html.DropDownListFor(model => model.ServiceType, new SelectList(Enum.GetValues(typeof(SERVICE_TYPE))), new { @class = "form-control" })
     </div>
 
     <div class="form-group">
@@ -36,6 +35,6 @@
             <option value="@maid.MaidId">@maid.FullName</option>
         }
     </select>
-
+    <button type="submit" class="btn btn-primary mt-3">Make Reservation</button>
 </form>
 

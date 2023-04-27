@@ -10,9 +10,24 @@
     <Compile Remove="Migrations\20230422140034_reservationTable.Designer.cs" />
     <Compile Remove="Migrations\20230423045812_testAgain.cs" />
     <Compile Remove="Migrations\20230423045812_testAgain.Designer.cs" />
+    <Compile Remove="Migrations\20230425094026_again.cs" />
+    <Compile Remove="Migrations\20230425094026_again.Designer.cs" />
+    <Compile Remove="Migrations\20230425094142_againssss.cs" />
+    <Compile Remove="Migrations\20230425094142_againssss.Designer.cs" />
+    <Compile Remove="Migrations\20230425094335_again.cs" />
+    <Compile Remove="Migrations\20230425094335_again.Designer.cs" />
+    <Compile Remove="Migrations\20230425094402_this.cs" />
+    <Compile Remove="Migrations\20230425094402_this.Designer.cs" />
+    <Compile Remove="Migrations\20230425094557_migrate.cs" />
+    <Compile Remove="Migrations\20230425094557_migrate.Designer.cs" />
+    <Compile Remove="Migrations\20230425094640_migr.cs" />
+    <Compile Remove="Migrations\20230425094640_migr.Designer.cs" />
+    <Compile Remove="Migrations\20230425094723_migra.cs" />
+    <Compile Remove="Migrations\20230425094723_migra.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="LinqKit" Version="1.2.4" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.32" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.32" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.32" />

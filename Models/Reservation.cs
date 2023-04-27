@@ -4,11 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel;
 
 namespace SparklingHome.Models
 {
     public enum TIMESLOT { 
+        [Description("Morning")]
         MORNING,
+        [Description("Afternoon")]
         AFTERNOON
     }
 
@@ -34,11 +37,13 @@ namespace SparklingHome.Models
 
         public int Postcode { get; set; }
 
-        public string Timeslot { get; set; }
+        public TIMESLOT Timeslot { get; set; }
 
-        public string ServiceType { get; set; }
+        public SERVICE_TYPE ServiceType { get; set; }
 
         public Boolean ReservationStatus { get; set; }
+
+        public string CustomerID { get; set; }
 
     }
 }

@@ -256,8 +256,8 @@ namespace SparklingHome.Migrations
                     b.Property<decimal>("Salary")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("WorkingExperienceInYears")
-                        .HasColumnType("int");
+                    b.Property<string>("WorkingExperienceInYears")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MaidId");
 
@@ -274,6 +274,9 @@ namespace SparklingHome.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CustomerID")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("MaidId")
                         .HasColumnType("int");
 
@@ -286,11 +289,11 @@ namespace SparklingHome.Migrations
                     b.Property<bool>("ReservationStatus")
                         .HasColumnType("bit");
 
-                    b.Property<string>("ServiceType")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ServiceType")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Timeslot")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Timeslot")
+                        .HasColumnType("int");
 
                     b.HasKey("ReservationId");
 

@@ -22,7 +22,7 @@ namespace SparklingHome.Areas.Identity.Pages.Account
         private readonly SignInManager<SparklingHomeUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
-        public LoginModel(SignInManager<SparklingHomeUser> signInManager, 
+        public LoginModel(SignInManager<SparklingHomeUser> signInManager,
             ILogger<LoginModel> logger,
             UserManager<SparklingHomeUser> userManager)
         {

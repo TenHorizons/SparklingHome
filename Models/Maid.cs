@@ -33,8 +33,9 @@ namespace SparklingHome.Models
         public Boolean IsAvailable { get; set; }
 
         [Range(0, 100, ErrorMessage = "This working experience range is invalid")]
-        public int WorkingExperienceInYears { get; set; }
+        public string WorkingExperienceInYears { get; set; }
 
         public ICollection<Reservation> Reservation { get; set; }
+
     }
 }

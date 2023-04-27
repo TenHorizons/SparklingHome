@@ -1,0 +1,191 @@
+﻿@model Tuple<Reservation, SparklingHome.Areas.Identity.Data.SparklingHomeUser>
+
+@if (TempData["reservationUpdateMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["reservationUpdateMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+<h1>
+    Reservation @Model.Item1.ReservationId
+    @if (Model.Item1.ReservationStatus == false)
+    {
+        <span class="badge badge-warning"
+              style="cursor: default"
+              data-toggle="tooltip"
+              data-placement="right"
+              title="The reservation has not been approved. Employees will not be sent over until it has been updated.">
+            Pending
+        </span>
+    }
+    else
+    {
+        <span class="badge badge-primary"
+              style="cursor: default"
+              data-toggle="tooltip"
+              data-placement="right"
+              title="Reservation approved. Employees will head over to the provided address on the specified date">
+            Approved
+        </span>
+    }
+</h1>
+
+@if (Model.Item2.UserType == "Admin")
+{
+    if (Model.Item1.ReservationStatus == false)
+    {
+        <div class="d-flex justify-content-start mt-4">
+            <button data-toggle="modal"
+                    data-target="#approveReservationModal"
+                    class="btn btn-outline-primary">
+                Approve Reservation
+            </button>
+        </div>
+    }
+    else
+    {
+        <div class="d-flex justify-content-start mt-4">
+            <button data-toggle="modal"
+                    data-target="#updatePendingReservationModal"
+                    class="btn btn-outline-danger">
+                Update to Pending
+            </button>
+        </div>
+    }
+}
+
+<hr />
+
+<div class="mt-4">
+    <section class="reservation-details container">
+        <div class="row">
+            <div class="col form-group">
+                <label>Address</label>
+                <textarea rows="5" disabled class="form-control" style="resize: none">@Model.Item1.Address</textarea>
+            </div>
+            <div class="col form-group">
+                <label>Postcode</label>
+                <input disabled value="@Model.Item1.Postcode" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col form-group">
+                <label>Timeslot</label>
+                <input disabled value="@Model.Item1.Timeslot" class="form-control" />
+            </div>
+            <div class="col form-group">
+                <label>Service Type</label>
+                <input disabled value="@Model.Item1.ServiceType" class="form-control" />
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <section class="maid-details container mt-4">
+        <div class="row d-flex flex-column">
+            <img class="img-fluid w-25 h-auto m-auto" src="~/assets/maid_icon.png" />
+            <h3 class="text-center mt-1">@Model.Item1.Maid.FullName</h3>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col form-group">
+                <label>Gender</label>
+                <input disabled value="@Model.Item1.Maid.Gender" class="form-control" />
+            </div>
+            <div class="col form-group">
+                <label>Contact No.</label>
+                <input disabled value="@Model.Item1.Maid.ContactNo" class="form-control" />
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <section class="customer-details container mt-4">
+        @if (Model.Item2.UserType == "Admin")
+        {
+            <h2>Customer Information</h2>
+        }
+        else
+        {
+            <h2>My Information</h2>
+        }
+        <div class="row mt-3">
+
+            <div class="col form-group">
+                <label>Name</label>
+                <input disabled value="@Model.Item2.UserFullName" class="form-control" />
+            </div>
+            <div class="col form-group">
+                <label>Contact No.</label>
+                <input disabled value="@Model.Item2.UserPhoneNumber" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-6 form-group">
+                <label>Email</label>
+                <input disabled value="@Model.Item2.Email" class="form-control" />
+            </div>
+
+        </div>
+    </section>
+</div>
+
+@if (Model.Item1.ReservationStatus == false)
+{
+    <div class="modal fade" tabindex="-1" id="approveReservationModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Approval</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Approve this reservation? Both the employee and the customer will be informed.</p>
+                </div>
+                <form class="modal-footer" asp-controller="Reservation" asp-action="UpdateReservationStatus">
+                    <input value="true" name="decision" hidden />
+                    <input value="@Model.Item1.ReservationId" name="ReservationId" hidden />
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Approve</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
+@if (Model.Item1.ReservationStatus == true)
+{
+    <div class="modal fade" tabindex="-1" id="updatePendingReservationModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Change to Pending?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Update this reservation to pending? Both the assigned employee and customer will be notified via email.</p>
+                </div>
+                <form class="modal-footer" asp-controller="Reservation" asp-action="UpdateReservationStatus">
+                    <input value="false" name="decision" hidden />
+                    <input value="@Model.Item1.ReservationId" name="ReservationId" hidden />
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
+

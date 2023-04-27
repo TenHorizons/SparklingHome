@@ -1318,3 +1318,14 @@ C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\SparklingHome.genruntimeco
 C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Views\Maid\MaidDetailsPage.cshtml.g.cs
 C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Views\Reservation\Index.cshtml.g.cs
 C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Views\Reservation\ReservationCreation.cshtml.g.cs
+C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\AdminHome\Index.cshtml.g.cs
+C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\UserHome\Index.cshtml.g.cs
+C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Views\Reservation\ReservationDetails.cshtml.g.cs
+C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
+C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\EntityFramework.dll
+C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\LinqKit.dll
+C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\LinqKit.Core.dll
+C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\System.CodeDom.dll
+C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

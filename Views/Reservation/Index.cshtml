@@ -1,22 +1,113 @@
-﻿@model List<Reservation>
+﻿@model Tuple<List<Reservation>, List<SelectListItem>>
 
-<div class="container mb-3">
+@if (TempData["successMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["successMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+<div class="container d-flex align-items-center justify-content-between">
     <h1>My Reservations</h1>
+    <div class="d-flex justify-content-start">
+        <a class="btn btn-primary" asp-action="ReservationCreation" asp-controller="Reservation">
+            Make Reservation
+        </a>
+
+        <button class="btn btn-info ml-3" type="button" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="collapseExample">
+            Filter by...
+        </button>
+
+    </div>
 </div>
 
 
+<section class="collapse" id="filters">
+    <form class="card card-body d-flex justify-content-around align-items-center"
+          asp-action="FilterReservationsBy"
+          asp-controller="Reservation">
+        <div class="container flex-column">
+            <div class="row">
+                <div class="form-group col">
+                    <label>Postcode</label>
+                    @Html.DropDownListFor(model => model,
+                        new SelectList(Model.Item2, "Value", "Text"),
+                        "-- Not selected --",
+                        new { @class = "custom-select", @name = "Postcode" })
+                </div>
+                <div class="form-group col">
+                    <label>Status</label>
+                    <select class="custom-select" name="ReservationStatus">
+                        <option value="true">Approved</option>
+                        <option value="false">Pending</option>
+                        <option selected>-- Not selected --</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col">
+                    <label>Service Type</label>
+                    @Html.DropDownListFor(model => model,
+                   new SelectList(Enum.GetValues(typeof(SERVICE_TYPE))),
+                   "-- Not selected --",
+                   new { @class = "custom-select", @name = "ServiceType" })
+                </div>
+
+                <div class="form-group col">
+                    <label>Timeslot</label>
+                    @Html.DropDownListFor(model => model,
+                   new SelectList(Enum.GetValues(typeof(TIMESLOT))),
+                   "-- Not selected --",
+                   new { @class = "form-control", @name = "Timeslot" })
+                </div>
+            </div>
+
+        </div>
+        <button class="btn btn-primary">Search</button>
+    </form>
+</section>
+
 
 <div class="container mt-5">
-    <div class="row">
-        <div class="col align-self-center">
-            <p class="lead text-center">No reservations yet</p>
+    @if (Model.Item1.Count == 0)
+    {
+        <div class="row">
+            <div class="col align-self-center">
+                <p class="lead text-center">No reservations yet</p>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col align-self-center">
-            <a class="btn btn-primary" asp-action="ReservationCreation" asp-controller="Reservation">
-                Make Reservation
-            </a>
-        </div>
-    </div>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Reservation ID</th>
+                    <th scope="col">Reservation Date</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Reservation Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var reservation in Model.Item1)
+                {
+                    <tr>
+                        <th scope="row">@reservation.ReservationId</th>
+                        <td>@reservation.ReservationDate</td>
+                        <td>@reservation.Address</td>
+                        <td>@reservation.ReservationStatus</td>
+                        <td>
+                            <a class="btn btn-info" asp-action="ReservationDetails" asp-controller="Reservation" asp-route-ReservationId="@reservation.ReservationId">View Details</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    }
+
 </div>
