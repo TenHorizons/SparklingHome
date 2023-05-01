@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "xadctq0t4kEjJQ6g5ktWmvUImYiczRxW5n3CXhDZQ7Tc9+6ExLOhnXUaJxchnMHckCfOPiaqFHm/NkkZUUbNcQ==",
+  "dgSpecHash": "ik29Iq0t+hdqP3oO4AUpqwqaimTG9FHAfLVNCOmykrDGvKCxsWwMn3w8/rbzbOt4kI4lW64sUlBJ/hpk9XFmAQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Public\\SparklingHome\\SparklingHome.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Koh\\.nuget\\packages\\awssdk.core\\3.7.106.29\\awssdk.core.3.7.106.29.nupkg.sha512",
+    "C:\\Users\\Koh\\.nuget\\packages\\awssdk.simplenotificationservice\\3.7.101.58\\awssdk.simplenotificationservice.3.7.101.58.nupkg.sha512",
     "C:\\Users\\Koh\\.nuget\\packages\\entityframework\\6.3.0\\entityframework.6.3.0.nupkg.sha512",
     "C:\\Users\\Koh\\.nuget\\packages\\linqkit\\1.2.4\\linqkit.1.2.4.nupkg.sha512",
     "C:\\Users\\Koh\\.nuget\\packages\\linqkit.core\\1.2.4\\linqkit.core.1.2.4.nupkg.sha512",

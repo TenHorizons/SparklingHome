@@ -1,0 +1,37 @@
+﻿
+@if (TempData["publishSuccessMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["publishSuccessMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+
+<section class="d-flex justify-content-center"
+         style="border-radius: 0 0 50% 50%; background-image: linear-gradient(#157ceb, #87b2e0) ">
+    <img class="img-fluid w-25 h-auto" style="transform: translateY(25%)" src="~/assets/send.png" />
+</section>
+
+<section class="container mt-5 pt-5">
+    <h4 class="row text-center d-block">Running a new promotional campaign? Let your customers know all about it!</h4>
+    <div class="row mt-5">
+        <form class="container align-items-center d-flex flex-column" asp-action="CreatePromotion" asp-controller="Promotion">
+            <div class="form-group w-50">
+                <label>Subject</label>
+                <input class="form-control" name="PromotionSubject" />
+            </div>
+            <div class="form-group w-50">
+                <label>Promotion Details</label>
+                <textarea rows="5" class="form-control" name="PromotionDetails"></textarea>
+            </div>
+            <div class="custom-control custom-checkbox w-50">
+                <input type="checkbox" class="custom-control-input" id="customCheck1" name="IsPremium">
+                <label class="custom-control-label" for="customCheck1">Publish as premium content</label>
+            </div>
+            <button class="btn btn-primary mt-3" type="submit">Publish</button>
+        </form>
+    </div>
+</section>

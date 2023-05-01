@@ -1,0 +1,33 @@
+﻿
+@if (TempData["subscriptionSuccessMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["subscriptionSuccessMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+
+<div class="container d-flex flex-column flex-lg-row mt-5">
+    <img src="~/assets/subscribe.png" class="img-fluid w-50 h-auto flex-grow-1 m-auto" />
+    <div class="container flex-grow-1">
+        <div class="row">
+            <h3>Subscribe to our Newsletter!</h3>
+            <p class="lead mt-1">Be the first to know about our offers. Never miss out again on our amazing deals!</p>
+        </div>
+        <form class="mt-2" asp-action="SubscribeToNewsletter" asp-controller="Promotion">
+            <div class="form-group">
+                <label for="subEmail">Email</label>
+                <input type="email" id="subEmail" class="form-control w-50" name="SubscriptionEmail" />
+                <small class="form-text text-muted">Promotions will be regularly sent to this email address.</small>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1" name="IsPremium">
+                <label class="custom-control-label" for="customCheck1">Sign me up for exclusive deals</label>
+            </div>
+            <button class="btn btn-primary mt-2" type="submit">Subscribe</button>
+        </form>
+    </div>
+</div>

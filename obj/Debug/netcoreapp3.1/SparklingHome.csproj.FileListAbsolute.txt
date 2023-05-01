@@ -1329,3 +1329,7 @@ C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\System.CodeDom.dll
 C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
 C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Views\Promotion\AdminBroadcast.cshtml.g.cs
+C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Views\Promotion\CustomerSubscription.cshtml.g.cs
+C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\AWSSDK.Core.dll
+C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\AWSSDK.SimpleNotificationService.dll

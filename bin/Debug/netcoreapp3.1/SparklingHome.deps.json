@@ -31,6 +31,7 @@
     ".NETCoreApp,Version=v3.1": {
       "SparklingHome/1.0.0": {
         "dependencies": {
+          "AWSSDK.SimpleNotificationService": "3.7.101.58",
           "LinqKit": "1.2.4",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.32",
           "Microsoft.AspNetCore.Identity.UI": "3.1.32",
@@ -305,6 +306,31 @@
         },
         "compile": {
           "SparklingHome.dll": {}
+        }
+      },
+      "AWSSDK.Core/3.7.106.29": {
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.106.29"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {}
+        }
+      },
+      "AWSSDK.SimpleNotificationService/3.7.101.58": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.106.29"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.SimpleNotificationService.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.101.58"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.SimpleNotificationService.dll": {}
         }
       },
       "EntityFramework/6.3.0": {
@@ -4073,6 +4099,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AWSSDK.Core/3.7.106.29": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qKEZxZUaLNw4c1OmPcYknP1ZrM6sQ8oBJNa02gp/9roCd2AYxu1QUPS4O8sNvaV9p0yuLGFFe0sR0FB5ElPMsw==",
+      "path": "awssdk.core/3.7.106.29",
+      "hashPath": "awssdk.core.3.7.106.29.nupkg.sha512"
+    },
+    "AWSSDK.SimpleNotificationService/3.7.101.58": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-L5x7yzNafzE1WO8vkIUzh74wNaa2CR+aNpRwJqKy66GiulCAs3uR5JwlFTwceCLiYmn1naboaSlcOYDduuxuXg==",
+      "path": "awssdk.simplenotificationservice/3.7.101.58",
+      "hashPath": "awssdk.simplenotificationservice.3.7.101.58.nupkg.sha512"
     },
     "EntityFramework/6.3.0": {
       "type": "package",

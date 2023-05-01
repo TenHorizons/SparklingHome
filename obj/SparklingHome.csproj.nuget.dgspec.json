@@ -44,6 +44,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "AWSSDK.SimpleNotificationService": {
+              "target": "Package",
+              "version": "[3.7.101.58, )"
+            },
             "LinqKit": {
               "target": "Package",
               "version": "[1.2.4, )"
