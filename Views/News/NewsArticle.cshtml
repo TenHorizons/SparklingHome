@@ -1,0 +1,13 @@
+﻿@model News
+
+<h2 class="mt-2">@Model.Title</h2>
+<div class="d-flex justify-content-start mt-4">
+    <div class="text-muted">Posted by: @Model.PostedBy</div>
+    <div class="text-muted ml-5">Date posted: @Model.DatePosted</div>
+</div>
+
+<img class="img-fluid mt-4" src="@Model.Image/1100/500" />
+
+<article class="container mt-2 mb-3" style="white-space: break-spaces; font-family: inherit">
+    @Model.Content
+</article>

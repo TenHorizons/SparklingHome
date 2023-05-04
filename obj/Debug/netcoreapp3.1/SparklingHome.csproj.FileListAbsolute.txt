@@ -1333,3 +1333,5 @@ C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Views\Promotion\Admi
 C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Views\Promotion\CustomerSubscription.cshtml.g.cs
 C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\AWSSDK.Core.dll
 C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\AWSSDK.SimpleNotificationService.dll
+C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Views\News\Index.cshtml.g.cs
+C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Views\News\NewsArticle.cshtml.g.cs

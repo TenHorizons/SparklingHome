@@ -1,0 +1,49 @@
+﻿@model Tuple<List<News>, bool>
+
+<form class="d-flex justify-content-end flex-row align-items-center"
+      asp-action="Index"
+      asp-controller="News" method="post">
+    <div class="text-muted mr-2">Sort articles by: </div>
+    <select class="custom-select w-25" name="SortOption" onchange="this.form.submit()">
+        <option value="default">Default</option>
+        <option value="latest" selected="@Model.Item2">Latest</option>
+    </select>
+</form>
+
+<section class="container d-flex justify-content-start flex-column mt-5">
+    @foreach (var news in Model.Item1)
+    {
+        <div class="card mb-3 w-75 mt-2">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="@news.Image/500/500" class="img-fluid" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">@news.Title</h5>
+                        <pre class="card-text text-break overflow-hidden"
+                             style="text-overflow: ellipsis;
+                                  display: -webkit-box;
+                                  -webkit-line-clamp: 5;
+                                  -webkit-box-orient: vertical;
+                                  white-space: normal;
+                                  font-family: inherit">
+                            @news.Content
+                        </pre>
+                        <div class="d-flex flex-row justify-content-between">
+                            <p class="card-text"><small class="text-muted">@news.DatePosted</small></p>
+                            <a class="card-link" 
+                               asp-controller="News" 
+                               asp-action="NewsArticle" 
+                               asp-route-newsId="@news.Id">
+                                View More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</section>
+
+<script src="~/js/news.js"></script>

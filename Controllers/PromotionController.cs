@@ -71,7 +71,9 @@ namespace SparklingHome.Controllers
                     Endpoint = SubscriptionEmail,
                     Attributes = new Dictionary<string, string>
                     {
-                        { "FilterPolicy", IsPremium == true ? "{\"premium\":[\"yes\"]}" : "{\"premium\":[\"no\"]}" }
+                        { "FilterPolicy", IsPremium == true ? 
+                        "{\"premium\":[\"yes\"]}" : 
+                        "{\"premium\":[\"no\"]}" }
                     }
                 };
 
@@ -143,7 +145,7 @@ namespace SparklingHome.Controllers
                     new { errorMessage = "Whoops! We ran into an error while trying to create the promotion. Please try again later." }
                 ) ;
             }
-
         }
+
     }
 }
