@@ -89,7 +89,11 @@
 
     <section class="maid-details container mt-4">
         <div class="row d-flex flex-column">
-            <img class="img-fluid w-25 h-auto m-auto" src="~/assets/maid_icon.png" />
+            <img class="img-fluid w-25 h-auto m-auto" src="@Model.Item1.Maid.ImageURL" />
+            @if (ViewBag.ImageDataUrl != null)
+            {
+               <img src="@ViewBag.ImageDataUrl" />
+            }
             <h3 class="text-center mt-1">@Model.Item1.Maid.FullName</h3>
         </div>
 

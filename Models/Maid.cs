@@ -37,5 +37,7 @@ namespace SparklingHome.Models
 
         public ICollection<Reservation> Reservation { get; set; }
 
+        public string ImageURL { get; set; }
+
     }
 }

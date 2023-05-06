@@ -31,6 +31,7 @@
     ".NETCoreApp,Version=v3.1": {
       "SparklingHome/1.0.0": {
         "dependencies": {
+          "AWSSDK.S3": "3.7.104.11",
           "AWSSDK.SimpleNotificationService": "3.7.101.58",
           "LinqKit": "1.2.4",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.32",
@@ -308,20 +309,34 @@
           "SparklingHome.dll": {}
         }
       },
-      "AWSSDK.Core/3.7.106.29": {
+      "AWSSDK.Core/3.7.106.32": {
         "runtime": {
           "lib/netcoreapp3.1/AWSSDK.Core.dll": {
             "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.7.106.29"
+            "fileVersion": "3.7.106.32"
           }
         },
         "compile": {
           "lib/netcoreapp3.1/AWSSDK.Core.dll": {}
         }
       },
+      "AWSSDK.S3/3.7.104.11": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.106.32"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.S3.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.104.11"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.S3.dll": {}
+        }
+      },
       "AWSSDK.SimpleNotificationService/3.7.101.58": {
         "dependencies": {
-          "AWSSDK.Core": "3.7.106.29"
+          "AWSSDK.Core": "3.7.106.32"
         },
         "runtime": {
           "lib/netcoreapp3.1/AWSSDK.SimpleNotificationService.dll": {
@@ -1590,11 +1605,7 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.ComponentModel.Annotations/4.7.0": {
-        "compile": {
-          "ref/netstandard2.1/System.ComponentModel.Annotations.dll": {}
-        }
-      },
+      "System.ComponentModel.Annotations/4.7.0": {},
       "System.ComponentModel.Primitives/4.3.0": {
         "dependencies": {
           "System.ComponentModel": "4.3.0",
@@ -4100,12 +4111,19 @@
       "serviceable": false,
       "sha512": ""
     },
-    "AWSSDK.Core/3.7.106.29": {
+    "AWSSDK.Core/3.7.106.32": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-qKEZxZUaLNw4c1OmPcYknP1ZrM6sQ8oBJNa02gp/9roCd2AYxu1QUPS4O8sNvaV9p0yuLGFFe0sR0FB5ElPMsw==",
-      "path": "awssdk.core/3.7.106.29",
-      "hashPath": "awssdk.core.3.7.106.29.nupkg.sha512"
+      "sha512": "sha512-RRDUNiz9GxFI36UMc5Ncr6TX3ovedSkpmHrvbowLd5iNFfhY+xu+60fM9bO2iCjuccp6b66wySuAVMDtqFfYGw==",
+      "path": "awssdk.core/3.7.106.32",
+      "hashPath": "awssdk.core.3.7.106.32.nupkg.sha512"
+    },
+    "AWSSDK.S3/3.7.104.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NHQHZaYtoy9+TJBDa2hLWr3XFVloXQXqV6fiDo7KOKQeoyPK6nyGHRFvN8Q2xWBPeHcDn/OM/QJpY8wyX//6LQ==",
+      "path": "awssdk.s3/3.7.104.11",
+      "hashPath": "awssdk.s3.3.7.104.11.nupkg.sha512"
     },
     "AWSSDK.SimpleNotificationService/3.7.101.58": {
       "type": "package",

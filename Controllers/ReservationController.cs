@@ -12,6 +12,12 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using SparklingHome.Areas.Identity.Data;
 using Newtonsoft.Json;
+using System.IO;
+using Amazon; // link to aws account
+using Amazon.S3; // S3 bucket
+using Amazon.S3.Model;
+using Microsoft.Extensions.Configuration; // appsettings.json
+using Microsoft.AspNetCore.Http; // file transfer
 
 namespace SparklingHome.Controllers
 {
@@ -20,6 +26,26 @@ namespace SparklingHome.Controllers
 
         private readonly SparklingHomeContext _context;
         private readonly UserManager<SparklingHomeUser> _userManager;
+
+        // give related bucket name
+        private const string bucketname = "sparklinghomez";
+
+        // make connection to AWS
+        private List<string> getKeysConnection()
+        {
+            List<string> keysList = new List<string>();
+
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json");
+            IConfiguration configure = builder.Build();
+
+            keysList.Add(configure["keys:key1"]);
+            keysList.Add(configure["keys:key2"]);
+            keysList.Add(configure["keys:key3"]);
+
+            return keysList;
+        }
 
         public ReservationController(
             SparklingHomeContext context,
@@ -185,6 +211,78 @@ namespace SparklingHome.Controllers
                 return RedirectToAction("ReservationDetails", "Reservation", new { ReservationId });
             }
 
+        }
+
+        public async Task<IActionResult> displayMaidPicture()
+        {
+            List<string> keyValues = getKeysConnection();
+            var S3connection = new AmazonS3Client(keyValues[0], keyValues[1], keyValues[2], RegionEndpoint.USEast1);
+            List<S3Object> maidImagesList = new List<S3Object>();
+
+            try
+            {
+                string token = null;
+                do
+                {
+                    ListObjectsRequest request = new ListObjectsRequest
+                    {
+                        BucketName = bucketname
+                    };
+
+                    ListObjectsResponse image = await S3connection.ListObjectsAsync(request).ConfigureAwait(false);
+                    token = image.NextMarker;
+                    maidImagesList.AddRange(image.S3Objects);
+                }
+                while (token != null);
+                return View(maidImagesList);
+            }
+            catch (AmazonS3Exception ex)
+            {
+                return BadRequest("error: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("error: " + ex.Message);
+            }
+        }
+
+        public async Task<IActionResult> DisplayMaidPicture(int id)
+        {
+            List<string> keyValues = getKeysConnection();
+            var S3connection = new AmazonS3Client(keyValues[0], keyValues[1], keyValues[2], RegionEndpoint.USEast1);
+            string imageName = $"maid_{id}";
+
+            try
+            {
+                GetObjectRequest request = new GetObjectRequest
+                {
+                    BucketName = bucketname,
+                    Key = imageName
+                };
+
+                using (GetObjectResponse response = await S3connection.GetObjectAsync(request))
+                {
+                    using (Stream stream = response.ResponseStream)
+                    {
+                        MemoryStream memoryStream = new MemoryStream();
+                        await stream.CopyToAsync(memoryStream);
+                        byte[] bytes = memoryStream.ToArray();
+                        string extension = response.Headers["Content-Type"].Split('/')[1];
+                        string imageBase64Data = Convert.ToBase64String(bytes);
+                        string imageDataURL = string.Format($"data:image/{extension};base64,{imageBase64Data}");
+                        ViewBag.ImageDataUrl = imageDataURL;
+                    }
+                }
+            }
+            catch (AmazonS3Exception ex)
+            {
+                return BadRequest("Error: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Error: " + ex.Message);
+            }
+            return View();
         }
     }
 }
