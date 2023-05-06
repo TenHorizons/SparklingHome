@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel;
+using SparklingHome.Areas.Identity.Data;
 
 namespace SparklingHome.Models
 {
@@ -43,7 +41,10 @@ namespace SparklingHome.Models
 
         public Boolean ReservationStatus { get; set; }
 
+        [ForeignKey("AspNetUsers")]
         public string CustomerID { get; set; }
+
+        public SparklingHomeUser Customer { get; set; }
 
     }
 }

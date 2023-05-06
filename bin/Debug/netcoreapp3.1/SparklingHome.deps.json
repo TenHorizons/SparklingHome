@@ -32,6 +32,7 @@
       "SparklingHome/1.0.0": {
         "dependencies": {
           "AWSSDK.S3": "3.7.104.11",
+          "AWSSDK.SQS": "3.7.101",
           "AWSSDK.SimpleNotificationService": "3.7.101.58",
           "LinqKit": "1.2.4",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.32",
@@ -346,6 +347,20 @@
         },
         "compile": {
           "lib/netcoreapp3.1/AWSSDK.SimpleNotificationService.dll": {}
+        }
+      },
+      "AWSSDK.SQS/3.7.101": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.106.32"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.SQS.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.101.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.SQS.dll": {}
         }
       },
       "EntityFramework/6.3.0": {
@@ -4131,6 +4146,13 @@
       "sha512": "sha512-L5x7yzNafzE1WO8vkIUzh74wNaa2CR+aNpRwJqKy66GiulCAs3uR5JwlFTwceCLiYmn1naboaSlcOYDduuxuXg==",
       "path": "awssdk.simplenotificationservice/3.7.101.58",
       "hashPath": "awssdk.simplenotificationservice.3.7.101.58.nupkg.sha512"
+    },
+    "AWSSDK.SQS/3.7.101": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-czkXsa0Z+CxbzaBUjNjwvjfsj0lk80NGC+y8rHKHJSiE+TZJYNpGx3nGT7Y30OXtuE2hVnZqSZooCmLKz9Chmg==",
+      "path": "awssdk.sqs/3.7.101",
+      "hashPath": "awssdk.sqs.3.7.101.nupkg.sha512"
     },
     "EntityFramework/6.3.0": {
       "type": "package",

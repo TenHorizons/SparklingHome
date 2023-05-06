@@ -4,11 +4,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using SparklingHome.Services;
 
 namespace SparklingHome
 {
@@ -27,7 +24,8 @@ namespace SparklingHome
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
+            services.AddHostedService<NotificationStreamService>();
+            services.AddSingleton<NotificationStreamService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -50,7 +50,7 @@ namespace SparklingHome.Controllers
             }
             else
             {
-                newsSortTuple = Tuple.Create(await GetNewsArticles(sparklinghomeNewsEndpoint), false);
+                newsSortTuple = Tuple.Create(await GetNewsArticles(sparklinghomeNewsEndpoint), true);
             }
 
             return View(newsSortTuple);

@@ -154,7 +154,6 @@ namespace SparklingHome.Controllers
 
         public async Task<IActionResult> MakeReservation(Reservation newReservation)
         {
-
             string userUid = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             newReservation.CustomerID = userUid;
 
@@ -181,6 +180,7 @@ namespace SparklingHome.Controllers
             {
                 Reservation foundReservation = await _context.Reservations
                     .Include(e => e.Maid)
+                    .Include(e => e.Customer)
                     .FirstOrDefaultAsync(e => e.ReservationId == int.Parse(ReservationId));
 
                 var user = await _userManager.GetUserAsync(HttpContext.User);
@@ -192,7 +192,7 @@ namespace SparklingHome.Controllers
             }
         }
 
-        public async Task<IActionResult> UpdateReservationStatus(bool decision, string ReservationId)
+        public async Task<IActionResult> UpdateReservationStatus(bool decision, string ReservationId, string CustomerId)
         {
             Reservation foundReservation = await _context.Reservations.FindAsync(int.Parse(ReservationId));
 
@@ -200,10 +200,22 @@ namespace SparklingHome.Controllers
 
             if (ModelState.IsValid)
             {
-                _context.Reservations.Update(foundReservation);
-                await _context.SaveChangesAsync();
-                TempData["reservationUpdateMessage"] = "Reservation updated!";
-                return RedirectToAction("ReservationDetails", "Reservation", new { ReservationId });
+                
+                NotificationController notificationController = new NotificationController();
+                bool result = await notificationController.SendReservationStatusToQueue(decision, CustomerId, ReservationId);
+
+                if (result == true)
+                {
+                    _context.Reservations.Update(foundReservation);
+                    await _context.SaveChangesAsync();
+                    TempData["reservationUpdateMessage"] = "Reservation updated!";
+                    return RedirectToAction("ReservationDetails", "Reservation", new { ReservationId });
+                }
+                else {
+                    TempData["reservationErrorMessage"] = "Unable to send message.";
+                    return RedirectToAction("ReservationDetails", "Reservation", new { ReservationId });
+                }
+
             }
             else
             {

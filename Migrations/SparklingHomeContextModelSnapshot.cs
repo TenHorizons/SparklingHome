@@ -278,7 +278,7 @@ namespace SparklingHome.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerID")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("MaidId")
                         .HasColumnType("int");
@@ -299,6 +299,8 @@ namespace SparklingHome.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ReservationId");
+
+                    b.HasIndex("CustomerID");
 
                     b.HasIndex("MaidId");
 
@@ -358,6 +360,10 @@ namespace SparklingHome.Migrations
 
             modelBuilder.Entity("SparklingHome.Models.Reservation", b =>
                 {
+                    b.HasOne("SparklingHome.Areas.Identity.Data.SparklingHomeUser", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerID");
+
                     b.HasOne("SparklingHome.Models.Maid", "Maid")
                         .WithMany("Reservation")
                         .HasForeignKey("MaidId")
