@@ -7,15 +7,22 @@ $(function () {
 })
 
 $(function () {
-    setInterval(function () {
-        $.get('/Home/GetNewMessages', function (data) {
-            var messageList = $('#sqsMessageList');
-            console.log(data)
-            data.forEach(function (message) {
-                console.log(message.Body)
-                messageList.append("<div class='dropdown-item'>" + message.Body + '</div>');
-            });
+    $("#sqsMessageList").empty();
+    $.get('/Home/GetNewMessages', function (data) {
+        var messageList = $('#sqsMessageList');
+        var messages = [];
+        messageList.children().each(function () {
+            messages.push($(this).text());
+            console.log($(this).text())
+        });
+        data.forEach(function (message) {
+            if (!messages.includes(message.body)) {
+                messageList.append("<div class='px-4'>" + message.body + "</div><div class='dropdown-divider'></div>");
+            }
+            
         });
         
-    }, 5000); // Poll every 5 seconds
+    });
 });
+
+

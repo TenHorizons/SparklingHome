@@ -1,4 +1,15 @@
-﻿<!DOCTYPE html>
+﻿
+@using Microsoft.AspNetCore.Identity
+@using SparklingHome.Areas.Identity.Data
+
+@inject SignInManager<SparklingHomeUser> SignInManager
+@inject UserManager<SparklingHomeUser> UserManager
+
+@{
+    var user = UserManager.GetUserAsync(User).Result;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -20,14 +31,29 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark text-center" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                if (user.UserType == "Admin")
+                                {
+                                    <a class="nav-link text-dark text-center" href="/Identity/AdminHome">Home</a>
+                                }
+                                else
+                                {
+                                    <a class="nav-link text-dark text-center" href="/Identity/UserHome">Home</a>
+                                }
+                            }
+                            else
+                            {
+                                <a class="nav-link text-dark text-center" asp-action="Index" asp-controller="Home">Home</a>
+                            }
+
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark text-center" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
                 </div>
-                <partial name="_LoginPartial"/>
+                <partial name="_LoginPartial" />
             </div>
         </nav>
     </header>

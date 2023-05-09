@@ -1336,3 +1336,10 @@ C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\AWSSDK.SimpleNotificationS
 C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Views\News\Index.cshtml.g.cs
 C:\Users\Public\SparklingHome\obj\Debug\netcoreapp3.1\Razor\Views\News\NewsArticle.cshtml.g.cs
 C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\AWSSDK.SQS.dll
+C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\AWSSDK.S3.dll
+C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\Amazon.Lambda.SQSEvents.dll
+C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\AWSSDK.XRay.dll
+C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\AWSXRayRecorder.Core.dll
+C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\AWSXRayRecorder.Handlers.AspNetCore.dll
+C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\AWSXRayRecorder.Handlers.AwsSdk.dll
+C:\Users\Public\SparklingHome\bin\Debug\netcoreapp3.1\aws-beanstalk-tools-defaults.json

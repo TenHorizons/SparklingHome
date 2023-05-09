@@ -6,6 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Http;
 using SparklingHome.Services;
+using Amazon.XRay.Recorder.Handlers.AwsSdk;
+using Amazon.XRay.Recorder.Handlers.AspNetCore;
+using Amazon.XRay.Recorder.Core;
 
 namespace SparklingHome
 {
@@ -14,6 +17,8 @@ namespace SparklingHome
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            AWSXRayRecorder.InitializeInstance(configuration: Configuration);
+            AWSSDKHandler.RegisterXRayForAllServices();
         }
 
         public IConfiguration Configuration { get; }
@@ -24,8 +29,8 @@ namespace SparklingHome
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddHostedService<NotificationStreamService>();
             services.AddSingleton<NotificationStreamService>();
+            services.AddHostedService<NotificationStreamService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +46,7 @@ namespace SparklingHome
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseXRay("SparklingHome");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

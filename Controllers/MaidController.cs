@@ -19,10 +19,10 @@ namespace SparklingHome.Controllers
     {
 
         private readonly SparklingHomeContext _context;
-        private readonly string bucketEndpoint = "https://sparklinghomez.s3.amazonaws.com";
+        private readonly string bucketEndpoint = "https://sparklinghomezz.s3.amazonaws.com";
 
         // give related bucket name
-        private const string bucketname = "sparklinghomez";
+        private const string bucketname = "sparklinghomezz";
 
         // make connection to AWS
         private List<string> getKeysConnection()

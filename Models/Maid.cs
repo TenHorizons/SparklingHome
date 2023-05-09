@@ -39,5 +39,7 @@ namespace SparklingHome.Models
 
         public string ImageURL { get; set; }
 
+        
+
     }
 }

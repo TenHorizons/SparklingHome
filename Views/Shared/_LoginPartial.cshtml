@@ -41,9 +41,6 @@
         <li class="nav-item">
             <a class="nav-link text-dark" asp-area="" asp-controller="Reservation" asp-action="Index">Cleaning Service</a>
         </li>
-@*        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="S3" asp-action="Index">Upload Page</a>
-        </li>*@
         <li class="nav-item">
             <a class="nav-link text-dark" asp-area="" asp-controller="News" asp-action="Index">Articles</a>
         </li>
@@ -55,7 +52,7 @@
 
                 @if (ViewBag.messages != null)
                 {
-                    foreach (var message in ViewBag.messages)
+                    foreach (var message in (List<Message>)ViewBag.messages)
                     {
                         <div>@message.Body</div>
                     }

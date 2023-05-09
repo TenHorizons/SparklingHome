@@ -5,12 +5,12 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using SparklingHome.Areas.Identity.Data;
 using Microsoft.AspNetCore.Http;
-using System.Security.Claims;
-using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using SparklingHome.Services;
 using Amazon.SQS.Model;
+using System.Security.Claims;
+using SparklingHome.Services;
+using System.Linq;
 
 namespace SparklingHome.Controllers
 {
@@ -29,13 +29,13 @@ namespace SparklingHome.Controllers
 
         public IActionResult Index()
         {
-            List<Message> messages = new List<Message>();
-            if (_signInManager.IsSignedIn(HttpContext.User))
-            {
-                messages = _notificationStreamService.GetMessages();
-                ViewBag.Messages = messages;
-            }
 
+            return View();
+        }
+
+
+        public IActionResult Privacy()
+        {
             return View();
         }
 
@@ -43,13 +43,16 @@ namespace SparklingHome.Controllers
         public IActionResult GetNewMessages()
         {
 
-            var messages = _notificationStreamService.GetMessages();
-            return Json(messages);
-        }
+            List<Message> messagesFound = _notificationStreamService.GetMessages();
+            string userUid = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-        public IActionResult Privacy()
-        {
-            return View();
+            var messages = messagesFound
+                .Where(m => m.MessageAttributes
+                    .TryGetValue("userId", out var attribute) &&
+                    attribute.StringValue == userUid
+                ).ToList();
+
+            return Json(messages);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

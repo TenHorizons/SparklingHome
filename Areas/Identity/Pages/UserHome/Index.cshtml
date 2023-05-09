@@ -1,5 +1,27 @@
-﻿@page
+﻿
+
+@page
 @model SparklingHome.Areas.Identity.Pages.UserHome.IndexModel
 @{
 }
-<h1>User Home</h1>
+
+
+@using Microsoft.AspNetCore.Identity
+@using SparklingHome.Areas.Identity.Data
+@inject UserManager<SparklingHomeUser> UserManager
+
+@{
+    var user = UserManager.GetUserAsync(User).Result;
+}
+
+
+<link href="~/css/cover.css" />
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+    <main role="main" class="inner cover">
+        <h1 class="cover-heading">Welcome back, @user.UserFullName</h1>
+        <p class="lead">Hope you're having a pleasant day'</p>
+    </main>
+
+</div>
